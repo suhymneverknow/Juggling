@@ -1,4 +1,4 @@
-<mujoco model="h1_2_mount">
+<mujoco model="h1_2_mount1">
 
   <include file="common/scene.xml"/>
   <include file="common/mimic_sites.xml"/>
@@ -70,7 +70,7 @@
     <material name="board_mat" rgba="0.55 0.34 0.16 1"/>
   </asset>
   <worldbody>
-    <!-- Ground reset: face +y toward the board, 0.45 m from its centre. -->
+    <!-- Mount1 reset: both feet stand on the inclined board. -->
     <body name="pelvis" pos="0 -0.45 1.028041" euler="0 0 1.57079632679">
       <site name="pelvis_mimic" class="mimic"/>
       <light name="spotlight" mode="trackcom" pos="0 -2 50" dir="0 0 -1"/>
@@ -425,7 +425,10 @@
         </body>
       </body>
     </body>
-    <body name="roller" pos="0 0 0.05" euler="1.57079632679 0 0">
+    <!-- With the board rolled by 15 degrees, this position puts the roller
+         tangent to its underside while the low (+x) board edge touches the
+         floor. -->
+    <body name="roller" pos="-0.02472452 0 0.05" euler="1.57079632679 0 0">
       <!-- Full 6-DoF rigid-body motion: xyz translation and xyz rotation. -->
       <freejoint name="roller_free"/>
       <geom name="roller_geom"
@@ -440,7 +443,7 @@
             solimp="0.95 0.99 0.001"/>
     </body>
 
-    <body name="board" pos="0 0 0.109" euler="0 0 0">
+    <body name="board" pos="0 0 0.10445638" euler="0 0.261799387799 0">
       <!-- Full 6-DoF rigid-body motion: xyz translation and xyz rotation. -->
       <freejoint name="board_free"/>
       <geom name="board_geom"

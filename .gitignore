@@ -11,6 +11,15 @@ env/
 wandb/
 *.log
 MUJOCO_LOG.TXT
+train/runs/mount/
+train/runs/
+train/downloads/
+train/.jax_cache/
+train/runs/slurm-*.out
+train/runs/slurm-*.err
+*.pt
+*.pkl
+*.pickle
 
 .idea/
 .vscode/

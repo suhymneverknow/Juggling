@@ -1,0 +1,37 @@
+total_timesteps: 2516582400
+max_iterations: 4800
+num_envs: 4096
+rollout_steps: 128
+epochs: 4
+minibatch_size: 4096
+lr: 5.0e-5
+gamma: 0.995
+reward_clip: 10.0
+gae_lambda: 0.95
+clip_coef: 0.1
+ent_coef: 0.001
+vf_coef: 0.5
+max_grad_norm: 0.5
+seed: 1
+device: cuda
+episode_seconds: 4.0
+reset_position_noise: 0.0
+reset_velocity_noise: 0.0
+reset_base_xy_noise: 0.0
+disturbance_force_max: 0.0
+disturbance_interval_seconds: 1.0
+disturbance_duration_seconds: 0.08
+pd_gain_randomization: 0.0
+run_name: run05
+log_interval: 5
+save_interval: 20
+use_wandb: true
+wandb_project: juggling
+wandb_run_name: run05
+wandb_mode: online
+hydra:
+  run:
+    dir: ${oc.env:JUGGLING_RUNS_DIR,${hydra:runtime.cwd}/train/runs/mount1}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  job:
+    chdir: false
+  output_subdir: .hydra
